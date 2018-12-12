@@ -2,10 +2,14 @@ World do
   puts 'We would instantiate the context here'
 end
 
+CONTAINER_ID = ''
+
 AfterConfiguration do
-  puts 'Here is we would spin up the docker container'
+  system('echo Starting $IMAGE_ID')
+  CONTAINER_ID = %x{docker run -d $IMAGE_ID}
 end
 
 at_exit do
-  puts 'Here is where we would shut down'
+  system("echo Stopping && docker stop #{CONTAINER_ID}")
+  puts "Stopped #{CONTAINER_ID}"
 end
