@@ -12,3 +12,4 @@ set_dirs
 export DOCKER_REPO="ebondark"
 export PROJECT_NAME="babelfish"
 export CONTAINER_NAME="$DOCKER_REPO/$PROJECT_NAME"
+export BASE_IMAGE="ebondark/babelfish-base"

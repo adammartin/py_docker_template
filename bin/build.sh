@@ -8,6 +8,7 @@ cd "${0%/*}"
 cd $PROJECT_DIR
 
 # Capture image_id so we can leverage it for execution and tagging purposes.
-export IMAGE_ID=$(docker build -t $CONTAINER_NAME . 2>/dev/null | awk '/Successfully built/{print $NF}')
+export IMAGE_ID=$(docker build --build-arg base_image=$BASE_IMAGE\
+  -t $CONTAINER_NAME . 2>/dev/null | awk '/Successfully built/{print $NF}')
 
 "$BUILD_SCRIPTS_DIR/run_tests.sh"

@@ -1,4 +1,6 @@
-FROM ebondark/babelfish-base
+ARG base_image
+
+FROM $base_image
 
 WORKDIR /app
 COPY ./app /app

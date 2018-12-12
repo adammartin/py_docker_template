@@ -2,8 +2,6 @@ World do
   puts 'We would instantiate the context here'
 end
 
-CONTAINER_ID = ''
-
 AfterConfiguration do
   system('echo Starting $IMAGE_ID')
   CONTAINER_ID = %x{docker run -d $IMAGE_ID}
