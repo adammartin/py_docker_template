@@ -1,0 +1,16 @@
+-r app/requirements.txt
+
+# static analysis
+autopep8==1.4.3
+bandit==1.5.1
+flake8==3.6.0
+pep8-naming==0.7.0
+pycodestyle==2.4.0
+pylint==2.2.2
+
+# testing
+coverage==4.5.2
+freezegun==0.3.11
+pytest==4.0.1
+pytest-cov==2.6.0
+httpretty==0.9.6

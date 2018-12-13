@@ -18,8 +18,10 @@ Docker is required.
 #### Local development requirements
 
 Requires:
-* RVM to manage Ruby (Acceptance Tests in Cucumber) 
+* RVM to manage Ruby (Acceptance Tests in Cucumber)
 * Ruby version 2.5.1 (Acceptance Tests in Cucumber)
+* pyenv to manage which python version you are managing for local development and build activities (default is python 3.6.3)
+
 
 ### Building
 
