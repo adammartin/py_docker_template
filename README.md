@@ -4,9 +4,10 @@ This project is intended as an initial template for composing dockerized project
 
 ## Getting Started
 
-Clone the project and edit the file `bin/build_variables.sh`
-
-Update the settings below to your desired values:
+1. Clone the project
+2. Execute the following command at root of project to reset git and make it your project `rm -rf .git && git init`
+3. Edit the file `bin/build_variables.sh`
+4. Update the settings below to your desired values (and you are cooking with fire!):
 
 ```
 export MIN_COVERAGE_PERCENTAGE=0
