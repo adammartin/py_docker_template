@@ -4,10 +4,11 @@ This project is intended as an initial template for composing dockerized project
 
 ## Getting Started
 
-1. Clone the project
-2. Execute the following command at root of project to reset git and make it your project `rm -rf .git && git init`
-3. Edit the file `bin/build_variables.sh`
-4. Update the settings below to your desired values (and you are cooking with fire!):
+1. Clone the project ( `git clone git@github.com:adammartin/py_docker_template.git`)
+2. Rename the root folder to your project name and cd into it.
+3. Execute the following command at root of project to reset git and make it your project `rm -rf .git && git init`
+4. Edit the file `bin/build_variables.sh`
+5. Update the settings below to your desired values (and you are cooking with fire!):
 
 ```
 export MIN_COVERAGE_PERCENTAGE=0
