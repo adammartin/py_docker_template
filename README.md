@@ -1,32 +1,40 @@
-# Babelfish
+# Project template for a python docker project
 
-Babelfish is intended to be an example project on how we might accomplish OCR as a stateless REST based service.
-
-What we want to build is a service that receives a streamed image or pdf and returns back unprocessed text.  It will leave text processing to the requesting application.
+This project is intended as an initial template for composing dockerized project with all the base requirements we would like to see baked in.
 
 ## Getting Started
 
-<Pending>
+Clone the project and edit the file `bin/build_variables.sh`
+
+Update the settings below to your desired values:
+
+```
+export MIN_COVERAGE_PERCENTAGE=0
+export BASE_IMAGE=[REPLACE_ME_WITH_IMAGE_YOU_WANT_AS_BASE]
+export DOCKER_REPO=[DOCKER_REPO_YOU_WILL_COMMIT_TO]
+export PROJECT_NAME=[YOUR_PROJECT_USED_TO_NAME_IMAGE]
+```
 
 ### Prerequisites
 
-Docker is required.
+* Docker host
 
 #### Production requirements
+
 <Pending>
 
 #### Local development requirements
 
 Requires:
+* Docker
+* Bash for shell execution
 * RVM to manage Ruby (Acceptance Tests in Cucumber)
 * Ruby version 2.5.1 (Acceptance Tests in Cucumber)
 * pyenv to manage which python version you are managing for local development and build activities (default is python 3.6.3)
 
-
 ### Building
 
 <Pending>
-
 
 ### Running the Tests
 
