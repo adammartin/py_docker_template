@@ -158,3 +158,8 @@ fabric.properties
 
 # Ignore collected data file
 *.xml
+
+############
+# CUCUMBER #
+############
+cucumber.json
