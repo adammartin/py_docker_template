@@ -19,13 +19,18 @@ export DOCKER_REPO=[DOCKER_REPO_YOU_WILL_COMMIT_TO]
 export PROJECT_NAME=[YOUR_PROJECT_USED_TO_NAME_IMAGE]
 ```
 
+**BASE_IMAGE:** This is the base image you are going to use for your project.  An example might be `python:3.7.1-alpine3.8`.
+**DOCKER_REPO:** This is YOUR repository you will be pushing to.
+**PROJECT_NAME:** This is what you want to call your new container.
+
 ### Prerequisites
 
 * Docker host
+* Bash shell
 
 #### Production requirements
 
-<Pending>
+* Something to deploy Docker Containers to!  (For example AKS)
 
 #### Local development requirements
 
@@ -39,7 +44,7 @@ Requires:
 
 ### Building
 
-<Pending>
+It is assumed you have already followed steps described in `Getting Started`.
 
 ### Running the Tests
 
