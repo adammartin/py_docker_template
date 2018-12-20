@@ -19,9 +19,15 @@ export DOCKER_REPO=[DOCKER_REPO_YOU_WILL_COMMIT_TO]
 export PROJECT_NAME=[YOUR_PROJECT_USED_TO_NAME_IMAGE]
 ```
 
-**BASE_IMAGE:** This is the base image you are going to use for your project.  An example might be `python:3.7.1-alpine3.8`.
-**DOCKER_REPO:** This is YOUR repository you will be pushing to.
-**PROJECT_NAME:** This is what you want to call your new container.
+* **BASE_IMAGE:** This is the base image you are going to use for your project.  An example might be `tiangolo/uwsgi-nginx-flask:python3.6`.  It is expected this image contains flask by default.  The container must have the following:
+
+   * Python 3 or better
+   * Flask
+   * A mechanism to bind traffic to port 80 (you can do others but you'll have to configure it) [Example: ]
+
+* **DOCKER_REPO:** This is YOUR repository you will be pushing to.
+* **PROJECT_NAME:** This is what you want to call your new container.
+* **MIN_COVERAGE_PERCENTAGE:** This is the setting that changes the percentage of code coverage to fail the build.  Currently it is set to 0% so we do not fail the build ever unless a test fails.  We recommend 90% as a starting point.
 
 ### Prerequisites
 
@@ -44,7 +50,16 @@ Requires:
 
 ### Building
 
-It is assumed you have already followed steps described in `Getting Started`.
+It is assumed you have already followed steps described in `Getting Started`.  From there you now have the following scripts at your fingertips!
+
+* **bin/build.sh**: This script is the base script that will set up the environment, execute static analysis, execute security scan, execute unit tests, build the container, and execute acceptance tests.
+* **bin/run_local.sh**: This script will execute the image with the `latest` tag.  Tailer to your needs.
+* **bin/cleanup_environment.sh**: This script will clean up excess images and containers laying around that are not tagged with `latest` tag.  Tailer to your needs.
+* **bin/build_variables.sh**: Variables used through out the scripts.
+* **bin/run_unit_tests.sh**: This script will run the unit tests.
+* **bin/analyze_python.sh**: This script will do local static analysis and security scans.
+* **bin/analyze_and_test.sh**: This script will execute the tuple of `analyze_python.sh` and `run_unit_tests.sh`
+* **bin/run_acceptance_tests.sh**: This script will execute the acceptance tests.  Note that if you run this outside of the `bin/build.sh` script you will need to set the `IMAGE_ID` environment variable to be passed into the acceptance tests scripts for firing up the correct image in a container.
 
 ### Running the Tests
 
@@ -52,4 +67,4 @@ It is assumed you have already followed steps described in `Getting Started`.
 
 ### Deployment
 
-Babelfish is a docker managed application.  Execute `bin/build.sh` in order to build the application.
+<Pending>
