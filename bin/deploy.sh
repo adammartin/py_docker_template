@@ -15,6 +15,12 @@ function create_yaml()
   source /dev/stdin <<<"$(echo "cat <<EOF >$output"; cat $template; echo EOF;)"
 }
 
+echo "TAGGING IMAGE $CONTAINER_NAME WITH $TAG"
+docker tag $CONTAINER_NAME $TAG
+
+echo "PUSHING IMAGE $TAG"
+docker push $TAG
+
 echo "CREATING YAML FILES FOR DEPLOYMENT"
 create_yaml application_template.yaml application.yaml
 create_yaml application_ingress_template.yaml application_ingress.yaml

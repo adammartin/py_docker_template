@@ -74,6 +74,7 @@ Requires:
 It is assumed you have already followed steps described in `Getting Started`.  From there you now have the following scripts at your fingertips!
 
 * **bin/build.sh**: This script is the base script that will set up the environment, execute static analysis, execute security scan, execute unit tests, build the container, and execute acceptance tests.
+* **bin/deploy.sh**: This script is the base script to deploy the composed and pushed image.
 * **bin/run_local.sh**: This script will execute the image with the `latest` tag.  Tailer to your needs.
 * **bin/cleanup_environment.sh**: This script will clean up excess images and containers laying around that are not tagged with `latest` tag.  Tailer to your needs.
 * **bin/build_variables.sh**: Variables used through out the scripts.
