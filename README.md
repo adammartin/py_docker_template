@@ -16,7 +16,13 @@ This project is intended as an initial template for composing dockerized project
 export MIN_COVERAGE_PERCENTAGE=0
 export BASE_IMAGE=[REPLACE_ME_WITH_IMAGE_YOU_WANT_AS_BASE]
 export DOCKER_REPO=[DOCKER_REPO_YOU_WILL_COMMIT_TO]
+export VERSION=[VERSION_OF_IMAGE]
 export PROJECT_NAME=[YOUR_PROJECT_USED_TO_NAME_IMAGE]
+# DEPLOY ONLY
+export CERT_PROVIDER=[letsencrypt-prod|letsencrypt-staging]
+export HOST_URL=[KUBERNETES_HOST_URL]
+export ROUTE=[ROUTE_ON_KUBERNETES_CLUSTER]
+export SECRET_NAME=[CREDENTIAL_NAME_ABLE_TO_ACESS_PRIVATE_REPO]
 ```
 
 * **BASE_IMAGE:** This is the base image you are going to use for your project.  An example might be `tiangolo/uwsgi-nginx-flask:python3.6`.  It is expected this image contains flask by default.  The container must have the following:
@@ -27,7 +33,22 @@ export PROJECT_NAME=[YOUR_PROJECT_USED_TO_NAME_IMAGE]
 
 * **DOCKER_REPO:** This is YOUR repository you will be pushing to.
 * **PROJECT_NAME:** This is what you want to call your new container.
+* **VERSION:** Docker image version (ex. v1.0) that the image is tagged with.
 * **MIN_COVERAGE_PERCENTAGE:** This is the setting that changes the percentage of code coverage to fail the build.  Currently it is set to 0% so we do not fail the build ever unless a test fails.  We recommend 90% as a starting point.
+* **CERT_PROVIDER:** (DEPLOY ONLY) Which lets encrypt provider to use for certs [letsencrypt-prod|letsencrypt-staging].
+* **HOST_URL:** (DEPLOY ONLY) Kubernetes host to deploy to.
+* **ROUTE:** (DEPLOY ONLY) Route in the kubernetes from root ('/')
+* **SECRET_NAME:** (DEPLOY ONLY) Kubernetes cluster secret name that has the credentials necessary to connect to the private container registry source.
+
+For deployment if you are pulling from a private repository there are two additional settings you likely need to adjust in the `bin/build_variables.sh` file that are commented out and one that is not.
+
+```
+# export REPO_SERVER=[PRIVATE REPOSITORY SERVER]
+# export TAG="$REPO_SERVER/$DOCKER_REPO/$PROJECT_NAME:$VERSION"
+export TAG="$DOCKER_REPO/$PROJECT_NAME:$VERSION"
+```
+
+Simply uncomment and populate REP_SERVER, uncomment the `TAG` line that references it, and delete or comment out the old `export TAG="$DOCKER_REPO/$PROJECT_NAME:$VERSION"`.  This will allow the deploy script to operate.
 
 ### Prerequisites
 

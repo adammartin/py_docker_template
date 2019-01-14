@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: ${PROJECT_NAME}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ${PROJECT_NAME}
+    spec:
+      containers:
+      - name: ${PROJECT_NAME}
+        image: ${TAG}
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: ${SECRET_NAME}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${PROJECT_NAME}
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: ${PROJECT_NAME}

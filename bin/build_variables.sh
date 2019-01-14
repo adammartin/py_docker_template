@@ -14,8 +14,18 @@ set_dirs
 export MIN_COVERAGE_PERCENTAGE=0
 export BASE_IMAGE=
 export DOCKER_REPO=
+export VERSION=
 export PROJECT_NAME=
+
+# DEPLOY ONLY
+export CERT_PROVIDER=
+export HOST_URL=
+export ROUTE=
+export SECRET_NAME=
 export CONTAINER_NAME="$DOCKER_REPO/$PROJECT_NAME"
+# export REPO_SERVER=
+# export TAG="$REPO_SERVER/$DOCKER_REPO/$PROJECT_NAME:$VERSION"
+export TAG="$DOCKER_REPO/$PROJECT_NAME:$VERSION"
 
 if [ -z "$BASE_IMAGE" ]; then
   echo "ERROR: You must set BASE_IMAGE in bin/build_variables.sh to the desired base docker image you are building on." 1>&2

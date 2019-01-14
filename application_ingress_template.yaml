@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ${PROJECT_NAME}-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: ${CERT_PROVIDER}
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - ${HOST_URL}
+    secretName: tls-secret
+  rules:
+  - host: ${HOST_URL}
+    http:
+      paths:
+      - path: ${ROUTE}
+        backend:
+          serviceName: ${PROJECT_NAME}
+          servicePort: 80
