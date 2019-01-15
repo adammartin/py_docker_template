@@ -2,6 +2,15 @@
 
 This project is intended as an initial template for composing dockerized project with all the base requirements we would like to see baked in.
 
+What does this template do out of the gates:
+
+1. Static Analysis using [pylint](https://www.pylint.org/)
+2. Security scanning using [bandit](https://github.com/PyCQA/bandit)
+3. Unit tests with code coverage and minimum coverage settings using [pytest](https://docs.pytest.org/en/latest/)
+4. [Docker](https://www.docker.com/) container composition
+5. Execution of acceptance tests against the docker container using [Cucumber](https://cucumber.io/) [NOTE: I want to create a variant that uses lettuce or some other python based acceptance tests instead].
+6. Deployment of the container.
+
 ## Getting Started
 
 1. Assert you have all the pre-requisites for development!
