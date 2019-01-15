@@ -90,3 +90,9 @@ It is assumed you have already followed steps described in `Getting Started`.  F
 ### Deployment
 
 <Pending>
+
+### Things to Uncover
+
+1) Is application_ingress.yaml and application.yaml the right names.  I think that creates a problem and we should be using the real application name for those files?
+2) How do I update routes after initial deployment?
+3) How do I use alternate routes other then '/' I tried it once and it didn't go so well?
